@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style
+        name="AppTheme"
+        parent="Theme.AppCompat.Light.DarkActionBar"
+    >
+        <!-- Customize your theme here. -->
+        <item
+            name="colorPrimary"
+        >
+            @color/colorPrimary
+        </item>
+        <item
+            name="colorPrimaryDark"
+        >
+            @color/colorPrimaryDark
+        </item>
+        <item
+            name="colorAccent"
+        >
+            @color/colorAccent
+        </item>
+        <item
+            name="android:actionBarStyle"
+            >
+            @style/LiteActionBarStyle
+        </item>
+        <item
+            name="actionBarStyle"
+        >
+            @style/LiteActionBarStyle
+        </item>
+    </style>
+
+    <style
+        name="LiteActionBarStyle"
+        parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse"
+    >
+        <item
+            name="android:displayOptions"
+        >
+        </item>
+        <item
+            name="displayOptions"
+        >
+        </item>
+    </style>
+
+</resources>

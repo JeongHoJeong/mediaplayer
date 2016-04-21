@@ -1,0 +1,12 @@
+<resources>
+    <string
+        name="app_name"
+    >
+        Media Player
+    </string>
+    <string
+        name="action_search"
+    >
+        Search
+    </string>
+</resources>
