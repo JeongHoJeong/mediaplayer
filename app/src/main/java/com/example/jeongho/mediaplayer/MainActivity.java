@@ -35,57 +35,6 @@ public class MainActivity extends AppCompatActivity {
     User user = new User("SomeId", "SomeName");
     ArrayList<ArrayList<File>> fileList = new ArrayList<>();
 
-    private enum MediaType {
-        PICTURE(new String[]{"jpeg", "jpg", "png"}, R.drawable.ic_photo_album_black_24dp),
-        MOVIE(new String[]{"mp3", "mkv"}, R.drawable.ic_movie_black_24dp),
-        MUSIC(new String[]{"mp3"}, R.drawable.ic_library_music_black_24dp);
-
-        public final String[] extensions;
-        public final String mediaName;
-        public final int icon;
-
-        MediaType(String[] extensions, int icon) {
-            this.extensions = extensions;
-
-            String[] words = this.name().split("_");
-            String mediaName = "";
-
-            for (String word : words) {
-                if (mediaName.length() > 0) {
-                    mediaName += " ";
-                }
-                mediaName += (word.substring(0, 1).toUpperCase()
-                        + word.substring(1).toLowerCase());
-            }
-
-            this.mediaName = mediaName;
-            this.icon = icon;
-        }
-
-        public String getName() {
-            return mediaName;
-        }
-
-        public int getIcon() {
-            return icon;
-        }
-    }
-
-    MediaType getMediaType(String fileName) {
-        String[] str = fileName.split("\\.");
-        String extension = str[str.length - 1];
-
-        for (MediaType mediaType : MediaType.values()) {
-            for (String ext : mediaType.extensions) {
-                if (ext.equalsIgnoreCase(extension)) {
-                    return mediaType;
-                }
-            }
-        }
-
-        return null;
-    }
-
     private class DirectoryAdapter extends ArrayAdapter<Directory> {
         public DirectoryAdapter(Context context, ArrayList<Directory> directories) {
             super(context, 0, directories);
@@ -165,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     String fileName = file.getName();
-                    MediaType mediaType = getMediaType(fileName);
+                    MediaType mediaType = MediaType.getMediaType(fileName);
 
                     if (mediaType != null) {
                         fileList.get(mediaType.ordinal()).add(file);
@@ -235,6 +184,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 System.out.println(position);
+
+                // For test
+                Intent intent = new Intent(ctx, TabActivity.class);
+                startActivity(intent);
             }
         });
     }

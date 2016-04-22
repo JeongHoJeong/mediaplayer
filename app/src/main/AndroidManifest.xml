@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.jeongho.mediaplayer"
->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jeongho.mediaplayer" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-    >
-        <activity
-            android:name=".MainActivity"
-        >
+        android:theme="@style/Theme.AppCompat.NoActionBar" >
+        <activity android:name=".MainActivity" >
+        </activity>
+        <activity android:name=".SubActivity" />
+        <activity android:name=".TabActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SubActivity"
-        />
-    </application>
+        <activity android:name=".PictureViewActivity" >
+        </activity>
+        <activity android:name=".MusicPlayer" >
+        </activity>
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <service
+            android:enabled="true"
+            android:name="com.example.jeongho.mediaplayer.MusicPlayerService"
+            android:exported="false"
+        />
+
+    </application>
 
 </manifest>

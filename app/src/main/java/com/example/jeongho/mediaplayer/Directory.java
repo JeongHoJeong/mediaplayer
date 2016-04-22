@@ -17,9 +17,7 @@ public class Directory {
         this.icon = icon;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
     public int getNumFiles() { return files.length; }
     public int getIcon() { return icon; }
 }
